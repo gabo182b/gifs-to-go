@@ -1,0 +1,32 @@
+@import "../../styles/partials/Global.scss";
+
+.gif-wrapper {
+  margin-bottom: 0.5em;
+  position: relative;
+  margin-bottom: 0;
+  height: 100%;
+}
+
+.gif-link {
+  color: $color-black;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  &__title {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    margin: 0;
+    bottom: 0;
+    font-size: $font-size-xs;
+    color: $color-white;
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    vertical-align: top;
+    object-fit: cover;
+  }
+}
