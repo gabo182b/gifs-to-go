@@ -3,7 +3,6 @@ import './listofgifs.scss'
 
 
 const ListOfGifs = ({ gifs }) => {
-
     return <div className='listofgifs'>
         {
             gifs.map(({ id, title, url }) =>
