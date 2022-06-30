@@ -21,6 +21,14 @@ const Home = () => {
         setKeyword(event.target.value)
     }
 
+    const popularGifsList = POPULAR_GIFS.map((popularGif) => (
+        <li key={popularGif}>
+            <Link to={`/search/${popularGif}`}>
+                Gifs de {popularGif}
+            </Link>
+        </li>
+    ))
+
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -30,13 +38,7 @@ const Home = () => {
             <ListOfGifs gifs={gifs} />
             <h3>Popular gifs</h3>
             <ul>
-                {POPULAR_GIFS.map((popularGif) => (
-                    <li key={popularGif}>
-                        <Link to={`/search/${popularGif}`}>
-                            Gifs de {popularGif}
-                        </Link>
-                    </li>
-                ))}
+                {popularGifsList}
             </ul>
         </>
     )
