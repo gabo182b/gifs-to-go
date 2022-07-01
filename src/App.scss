@@ -1,0 +1,27 @@
+@import "./styles/partials/Global.scss";
+
+.App {
+    text-align: center;
+    &__content {
+        background: $color-background;
+        color: $color-white;
+        @include flexBox(column, center);
+        font-size: $font-size-md;
+        min-height: 100vh;
+        padding: 1rem;
+        text-align: center;
+    }
+    &__logo {
+        margin: 0.625rem auto;
+        padding: 1.25rem 0;
+        width: 15rem;
+    }
+    &__logo > img {
+        object-fit: cover;
+        width: 100%;
+    }
+    &__logo > img:hover {
+        cursor: pointer;
+    }
+}
+
