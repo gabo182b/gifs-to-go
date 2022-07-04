@@ -6,7 +6,10 @@ const Detail = ({ params }) => {
 
     const gif = gifs.find(currentGif => currentGif.id === params.id)
 
-    return <Gif {...gif} />
+    return <>
+        <h3>{gif.title}</h3>
+        <Gif {...gif} />
+    </>
 }
 
 export { Detail }
