@@ -1,7 +1,7 @@
 const apiKey = 'OU0d4i5dFZ9oKlEnRbQy9VlLw9QOwUPa'
 
-const getGifs = ({ keyword = 'morty' } = {}) => {
-    const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=10&offset=0&rating=g&lang=en`
+const getGifs = ({ limit = 25, keyword = 'morty' } = {}) => {
+    const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=${limit}&offset=0&rating=g&lang=en`
 
     return fetch(apiURL)
         .then(res => res.json())
