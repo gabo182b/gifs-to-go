@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'wouter'
 import { ListOfGifs } from '../../Components/ListOfGifs'
+import { Category } from '../../Components/Category'
 import { useGifs } from '../../hooks/useGifs'
-
 import './home.scss'
 
 const POPULAR_GIFS = ["Matrix", "Venezuela", "Chile", "Colombia", "Ecuador"]
@@ -21,25 +21,31 @@ const Home = () => {
         setKeyword(event.target.value)
     }
 
-    const popularGifsList = POPULAR_GIFS.map((popularGif) => (
-        <li key={popularGif}>
-            <Link to={`/search/${popularGif}`}>
-                Gifs de {popularGif}
-            </Link>
-        </li>
-    ))
-
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input type='text' value={keyword} placeholder='Search Here' onChange={handleChange} />
+            <form className='form' onSubmit={handleSubmit}>
+                <button className='form__button'>Search</button>
+                <input className='form__input' type='text' value={keyword} placeholder='Search' onChange={handleChange} />
             </form>
-            <h3>Last Search</h3>
-            <ListOfGifs gifs={gifs} />
-            <h3>Popular gifs</h3>
-            <ul>
-                {popularGifsList}
-            </ul>
+            <div className='home'>
+                <div className='home__search-results'>
+                    <h3>Last Search</h3>
+                    <ListOfGifs gifs={gifs} />
+                </div>
+
+                <div className='home__categories'>
+                    <Category
+                        name='Popular Searchs'
+                        options={POPULAR_GIFS}
+                    />
+                    <Category
+                        name="Mascotas"
+                        options={['Perros', 'Gatos', 'Hamster']}
+                    />
+                </div>
+            </div>
+
+
         </>
     )
 }
