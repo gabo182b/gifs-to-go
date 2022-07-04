@@ -1,6 +1,21 @@
-@mixin flexBox($direction) {
+$tablet: 640px;
+$desktop: 800px;
+
+@mixin flexBox($direction, $align-items) {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: $align-items;
     flex-direction: $direction;
+}
+
+@mixin tablet {
+    @media (min-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop) {
+        @content;
+    }
 }
